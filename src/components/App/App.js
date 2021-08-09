@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Container, LineCenter } from './components/styled';
+import { Container, LineCenter } from '../styled';
 import { Button, Form, InputGroup, FormControl, Alert } from 'react-bootstrap'
-import { initializeMatrix, findMatch } from './utils';
-import Card from './components/Card';
+import { initializeMatrix, findMatch } from '../../utils';
+import Card from '../Card';
 
 const App = () => {
   const [gameStart, setGameStart] = useState(false);

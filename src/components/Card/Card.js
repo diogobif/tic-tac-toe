@@ -15,7 +15,7 @@ const Card = ({ matrix, updateMatrix }) => {
               {
                 row.map((item, indexRow) => {
                   return (
-                    <LineItem key={`row_${indexRow}`} onClick={() => !matrix[index][indexRow] ? updateMatrix(index, indexRow) : null}>
+                    <LineItem content={matrix[index][indexRow]} key={`row_${indexRow}`} onClick={() => !matrix[index][indexRow] ? updateMatrix(index, indexRow) : null}>
                       <span>{ matrix[index][indexRow] }</span>
                     </LineItem>
                   )

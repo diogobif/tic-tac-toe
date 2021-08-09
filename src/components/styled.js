@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PLAYER_ONE_CHAR, PLAYER_TWO_CHAR } from '../constants';
 
 export const Container = styled.div`
   display: flex;
@@ -32,12 +33,16 @@ export const LineCenter = styled.div`
   }
 `;
 
+const getColor = (content) => {
+  return content ===  PLAYER_ONE_CHAR ? '00f' : (content ===  PLAYER_TWO_CHAR ? 'f00' : '000')
+}
+
 export const LineItem = styled.div`
   display: flex;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  border: 1px solid #000;
+  border: 2px solid #${(props) => getColor(props.content)};
   margin: 1px;
   cursor: pointer;
   height: 50px;
