@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PLAYER_ONE_CHAR, PLAYER_TWO_CHAR } from '../constants';
+import { PLAYER_ONE_CHAR, PLAYER_TWO_CHAR } from './constants';
 
 export const Container = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 15px;
+  margin: 15px;
 `;
 
 export const Line = styled.div`
@@ -31,6 +31,14 @@ export const LineCenter = styled.div`
   button {
     width: 100% !important;
   }
+`;
+
+export const MessageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
 `;
 
 const getColor = (content) => {
