@@ -1,26 +1,24 @@
 import React from 'react';
-import { Line, LineItem, LineCenter } from '../styled';
+import CardItem from '../../containers/CardItem';
+import { Line, LineCenter } from '../../styled';
+import { UseAppContext } from "../../context/app"
 
-const Card = ({ matrix, updateMatrix }) => {
-  const matLength = matrix[0].length;
-  let rows = [], i = -1;
-  while (++i < matLength) rows.push(matrix[i]);
+const Card = () => {
+  const { matrix, gameStart } = UseAppContext();
+  let rows = [], i = -1, matLength = 0;
+
+  if (matrix.length) {
+    matLength = matrix[0].length;
+    while (++i < matLength) rows.push(matrix[i]);
+  }
   
   return (
     <LineCenter>
       {
-        rows.map(function (row, index) {
+        matrix.length > 0 && gameStart && rows.map(function (row, indexX) {
           return (
-            <Line key={`row_${index}`}>
-              {
-                row.map((item, indexRow) => {
-                  return (
-                    <LineItem content={matrix[index][indexRow]} key={`row_${indexRow}`} onClick={() => !matrix[index][indexRow] ? updateMatrix(index, indexRow) : null}>
-                      <span>{ matrix[index][indexRow] }</span>
-                    </LineItem>
-                  )
-                })
-              }
+            <Line key={`row_${indexX}`}>
+              { row.map((item, indexY) => <CardItem key={`${indexX}${indexY}`} indexX={indexX} indexY={indexY} />) }
             </Line>
           )
         })
